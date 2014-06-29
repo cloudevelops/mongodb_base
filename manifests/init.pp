@@ -80,14 +80,8 @@ class mongodb_base (
   $pidfilepath     = undef
 ) inherits mongodb_base::params {
 
-  class { 'mongodb':
-    enable_10gen    => $enable_10gen,
-    init            => $init,
-    location        => $location,
-    packagename     => $packagename,
-    version         => $version,
-    servicename     => $servicename,
-    service_enable  => $service_enable,
+  class { 'mongodb::server':
+    package_name    => $packagename,
     logpath         => $logpath,
     logappend       => $logappend,
     fork            => $fork,
@@ -98,11 +92,9 @@ class mongodb_base (
     smallfiles      => $smallfiles,
     cpu             => $cpu,
     noauth          => $noauth,
-    auth            => $auth,
     verbose         => $verbose,
     objcheck        => $objcheck,
     quota           => $quota,
-    oplog           => $oplog,
     oplog_size      => $oplog_size,
     nohints         => $nohints,
     nohttpinterface => $nohttpinterface,
