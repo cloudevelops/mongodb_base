@@ -7,15 +7,6 @@ class mongodb_base::monitoring::collectd {
     }
   }
 
-  collectd::plugin::python {'mongodb':
-    module => 'mongodb',
-    modulepath => '/usr/lib/collectd',
-    script_source => 'puppet:///modules/mongodb_base/monitoring/collectd/mongodb.py',
-    config => {
-      'Host' => '127.0.0.1'
-    }
-  }
-
   concat::fragment { 'mongodb':
     ensure => present,
     target => '/etc/collectd/my_types.db',
@@ -28,7 +19,15 @@ class mongodb_base::monitoring::collectd {
       percent percent:GAUGE:0:100.1\n
       total_operations value:DERIVE:0:U\n",
     order   => "10-${name}",
+    notify  => Service['collectd']
+  } ->
+  collectd::plugin::python {'mongodb':
+    module => 'mongodb',
+    modulepath => '/usr/lib/collectd',
+    script_source => 'puppet:///modules/mongodb_base/monitoring/collectd/mongodb.py',
+    config => {
+      'Host' => '127.0.0.1'
+    }
   }
-
 
 }
