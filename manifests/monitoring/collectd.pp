@@ -10,14 +10,13 @@ class mongodb_base::monitoring::collectd {
   concat::fragment { 'mongodb':
     ensure => present,
     target => '/etc/collectd/my_types.db',
-    content =>
-      "cache_ratio value:GAUGE:0:100\n
-      connections value:COUNTER:0:U\n
-      counter value:COUNTER:U:U\n
-      file_size bytes:GAUGE:0:U\n
-      memory value:GAUGE:0:281474976710656\n
-      percent percent:GAUGE:0:100.1\n
-      total_operations value:DERIVE:0:U\n",
+    content => "cache_ratio value:GAUGE:0:100
+connections value:COUNTER:0:U
+counter value:COUNTER:U:U
+file_size bytes:GAUGE:0:U
+memory value:GAUGE:0:281474976710656
+percent percent:GAUGE:0:100.1
+total_operations value:DERIVE:0:U\n",
     order   => "10-${name}",
     notify  => Service['collectd']
   } ->
