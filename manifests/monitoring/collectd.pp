@@ -21,12 +21,12 @@ class mongodb_base::monitoring::collectd {
     target => '/etc/collectd/my_types.db',
     content =>
       "cache_ratio value:GAUGE:0:100\n
-      connections value:COUNTER:0:U\N
-      counter value:COUNTER:U:U\N
-      file_size bytes:GAUGE:0:U\N
-      memory value:GAUGE:0:281474976710656\N
-      percent percent:GAUGE:0:100.1\N
-      total_operations value:DERIVE:0:U\N",
+      connections value:COUNTER:0:U\n
+      counter value:COUNTER:U:U\n
+      file_size bytes:GAUGE:0:U\n
+      memory value:GAUGE:0:281474976710656\n
+      percent percent:GAUGE:0:100.1\n
+      total_operations value:DERIVE:0:U\n",
     order   => "10-${name}",
   }
 
