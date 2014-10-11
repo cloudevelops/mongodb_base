@@ -1,6 +1,6 @@
 class mongodb_base::monitoring::collectd {
 
-  collectd_base::concat_plugin {'mysql-processes':
+  collectd_base::concat_plugin {'mongod':
     plugin => 'processes',
     config => {
       'Process' => ['mongod']
