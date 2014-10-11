@@ -117,4 +117,8 @@ class mongodb_base (
     pidfilepath     => $pidfilepath,
   }
 
+  if $base_monitoring_collectd {
+    include mongodb_base::monitoring::collectd
+  }
+
 }
