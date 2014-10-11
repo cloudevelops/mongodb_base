@@ -80,45 +80,6 @@ class mongodb_base (
   $pidfilepath     = undef
 ) inherits mongodb_base::params {
 
-  class { 'mongodb::server':
-    package_name    => $packagename,
-    logpath         => $logpath,
-    logappend       => $logappend,
-    fork            => $fork,
-    port            => $port,
-    dbpath          => $dbpath,
-    journal         => $journal,
-    nojournal       => $nojournal,
-    smallfiles      => $smallfiles,
-    cpu             => $cpu,
-    noauth          => $noauth,
-    verbose         => $verbose,
-    objcheck        => $objcheck,
-    quota           => $quota,
-    oplog_size      => $oplog_size,
-    nohints         => $nohints,
-    nohttpinterface => $nohttpinterface,
-    noscripting     => $noscripting,
-    notablescan     => $notablescan,
-    noprealloc      => $noprealloc,
-    nssize          => $nssize,
-    mms_token       => $mms_token,
-    mms_name        => $mms_name,
-    mms_interval    => $mms_interval,
-    slave           => $slave,
-    only            => $only,
-    master          => $master,
-    source          => $source,
-    replset         => $replset,
-    rest            => $rest,
-    slowms          => $slowms,
-    keyfile         => $keyfile,
-    bind_ip         => $bind_ip,
-    pidfilepath     => $pidfilepath,
-  }
-
-  if $base_monitoring_collectd {
-    include mongodb_base::monitoring::collectd
-  }
+  fail("Mongodb init class is deprecated. Please use class { 'mongodb::server': }")
 
 }
