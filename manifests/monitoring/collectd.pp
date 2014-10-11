@@ -20,7 +20,7 @@ class mongodb_base::monitoring::collectd {
     ensure => present,
     target => '/etc/collectd/my_types.db',
     content =>
-      "cache_ratio value:GAUGE:0:100\N
+      "cache_ratio value:GAUGE:0:100\n
       connections value:COUNTER:0:U\N
       counter value:COUNTER:U:U\N
       file_size bytes:GAUGE:0:U\N
