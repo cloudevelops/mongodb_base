@@ -108,6 +108,8 @@ class mongodb_base::server (
     set_parameter    => $set_parameter,
     syslog           => $syslog,
   }->
-  class {'mongodb_base::monitoring': }
+  class {'mongodb_base::monitoring': }->
+  class {'mongodb_base::client': }->
+  class {'mongodb_base::tools': }
 
 }
