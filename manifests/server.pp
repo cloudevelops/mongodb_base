@@ -49,6 +49,8 @@ class mongodb_base::server (
   $set_parameter    = undef,
   $syslog           = undef,
   $base_monitoring_collectd = $mongodb_base::params::base_monitoring_collectd,
+  $base_install_client = $mongodb_base::params::base_install_client,
+  $base_install_tools = $mongodb_base::params::base_install_tools,
 
 ) inherits mongodb_base::params {
 
